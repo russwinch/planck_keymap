@@ -1,3 +1,3 @@
 # My Planck Layout 
 
-Designed primarily for programming in Python on MacOS
+Designed primarily for programming in Python using NeoVim on MacOS
