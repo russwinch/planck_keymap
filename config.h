@@ -3,9 +3,11 @@
 
 #include "config_common.h"
 
-#define BACKLIGHT_BREATHING
+/* #define BACKLIGHT_BREATHING */
 #define BACKLIGHT_LEVELS 3
 #define BREATHING_PERIOD 6
+
+/* #define TAPPING_TERM    200 */
 
 #ifdef AUDIO_ENABLE
     #define STARTUP_SONG SONG(PLANCK_SOUND)
