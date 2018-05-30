@@ -3,9 +3,11 @@
 
 #include "config_common.h"
 
-/* #define BACKLIGHT_BREATHING */
-#define BACKLIGHT_LEVELS 3
-#define BREATHING_PERIOD 6
+#undef BACKLIGHT_LEVELS
+#define BACKLIGHT_LEVELS 8
+
+#define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD 8
 
 /* #define TAPPING_TERM    200 */
 
