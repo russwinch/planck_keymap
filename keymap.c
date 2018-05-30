@@ -95,14 +95,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *       when held |------+------+------+------+------+------|------+------+------+------+------+------|
  *                 |Capslk|uPyMac|      |      |      |      |      |      |      |      |      |Shift |
  *                 |------+------+------+------+------+------+------+------+------+------+------+------|
- *                 | Lock |Numlk | Func |      |      |  Gui |  Alt |      |      |      |Debug |Reset |
+ *                 | Lock |Numlk | Func | Alt  |      |  Gui |      |      |      |      |Debug |Reset |
  *                 `-----------------------------------------------------------------------------------'
  */
 [_FUNCTION] = {
   {KC_F1,            KC_F2,       KC_F3,        KC_F4,        KC_F5,              KC_F6,      KC_F7,      KC_F8,      KC_F8,   KC_F10,   KC_F11,  KC_F12},
   {CTL_T(KC_ESC),    ___x___,     LGUI(KC_F11), LGUI(KC_F12), LGUI(LALT(KC_ESC)), ___x___,    ___x___,    KC_SLCK,    KC_PAUS, ___x___,  ___x___, KC_RCTL},
   {KC_CAPS,          ___x___,     ___x___,      ___x___,      ___x___,            ___x___,    ___x___,    ___x___,    ___x___, ___x___,  ___x___, KC_RSFT},
-  {LCTL(LGUI(KC_Q)), TG(_NUMPAD), _______,      _______,      KC_LALT,            KC_LGUI,    ___x___,    ___x___,    ___x___, ___x___,  DEBUG,   RESET}
+  {LCTL(LGUI(KC_Q)), TG(_NUMPAD), _______,      _______,      ___x___,            KC_LGUI,    ___x___,    ___x___,    ___x___, ___x___,  DEBUG,   RESET}
 },
 
 /* Number Pad
