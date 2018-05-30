@@ -1,8 +1,4 @@
 /* Copyright 2015-2017 Jack Humbert
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -28,20 +24,9 @@ enum planck_layers {
   _BACKLIGHT
 };
 
-/* enum planck_keycodes { */
-/*   QWERTY = SAFE_RANGE, */
-/*   PLOVER, */
-/*   LOWER, */
-/*   RAISE, */
-/*   FUNCTION, */
-/*   NUMPAD, */
-/*   BACKLIGHT */
-/* }; */
-
 // Key aliases for legibility
 #define _______ KC_TRNS
 #define ___x___ KC_NO
-/* #define ___*___ KC_NO */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -53,16 +38,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * when held   |------+------+------+------+------+------|------+------+------+------+------+------|
  *             | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter | ---RSHIFT when held
  *             |------+------+------+------+------+------+------+------+------+------+------+------|
- *             | BLITE| NPAD | HOLD | FUNC |Lower | Bksp |Space |Raise | Left | Down |  Up  |Right |
+ *             | BLITE| NPAD | FUNC |  ALT | Lower| Bksp | Space| Raise| Left | Down |  Up  |Right |
  *             `-----------------------------------------------------------------------------------'
- *                                           GUI____/       \____ALT
- *                                    when held                when held
+ *                                           GUI____/
+ *                                    when held
  */
 [_QWERTY] = {
-  {KC_TAB,                  KC_Q,       KC_W,    KC_E,         KC_R,        KC_T,           KC_Y,          KC_U,      KC_I,    KC_O,    KC_P,    KC_BSLS},
-  {CTL_T(KC_ESC),           KC_A,       KC_S,    KC_D,         KC_F,        KC_G,           KC_H,          KC_J,      KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_QUOT)},
-  {KC_LSFT,                 KC_Z,       KC_X,    KC_C,         KC_V,        KC_B,           KC_N,          KC_M,      KC_COMM, KC_DOT,  KC_SLSH, MT(MOD_RSFT, KC_ENT)},
-  {MO(_BACKLIGHT), TG(_NUMPAD), MO(_FUNCTION), KC_LALT, MO(_LOWER), GUI_T(KC_BSPC), KC_SPC, MO(_RAISE), KC_LEFT, KC_DOWN, KC_UP,  KC_RGHT}
+  {KC_TAB,         KC_Q,        KC_W,          KC_E,    KC_R,       KC_T,           KC_Y,   KC_U,       KC_I,    KC_O,    KC_P,    KC_BSLS},
+  {CTL_T(KC_ESC),  KC_A,        KC_S,          KC_D,    KC_F,       KC_G,           KC_H,   KC_J,       KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_QUOT)},
+  {KC_LSFT,        KC_Z,        KC_X,          KC_C,    KC_V,       KC_B,           KC_N,   KC_M,       KC_COMM, KC_DOT,  KC_SLSH, MT(MOD_RSFT, KC_ENT)},
+  {MO(_BACKLIGHT), MO(_NUMPAD), MO(_FUNCTION), KC_LALT, MO(_LOWER), GUI_T(KC_BSPC), KC_SPC, MO(_RAISE), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Lower
@@ -95,10 +80,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                 `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = {
-  {_______,        KC_EXLM,    KC_AT,    KC_HASH,  KC_DLR,   KC_PERC, KC_CIRC,        KC_AMPR,       KC_ASTR,     KC_LPRN,        KC_RPRN, KC_EQL},
-  {KC_TILD,        KC_1,       KC_2,     KC_3,     KC_4,     KC_5,    KC_6,           KC_7,          KC_8,        KC_9,           KC_0,    MT(MOD_RCTL, KC_DOT)},
-  {_______,        ___x___,    ___x___,  ___x___,  ___x___,  ___x___, LALT(KC_LEFT),  LALT(KC_DOWN), LALT(KC_UP), LALT(KC_RIGHT), _______, _______},
-  {___x___,        ___x___,    _______,  ___x___,  ___x___,  _______, _______,        _______,       _______,     _______,        _______, _______}
+  {_______, KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC, KC_CIRC,       KC_AMPR,       KC_ASTR,     KC_LPRN,        KC_RPRN, KC_EQL},
+  {KC_TILD, KC_1,     KC_2,     KC_3,     KC_4,     KC_5,    KC_6,          KC_7,          KC_8,        KC_9,           KC_0,    MT(MOD_RCTL, KC_DOT)},
+  {_______, ___x___,  ___x___,  ___x___,  ___x___,  ___x___, LALT(KC_LEFT), LALT(KC_DOWN), LALT(KC_UP), LALT(KC_RIGHT), _______, _______},
+  {___x___, ___x___,  _______,  ___x___,  ___x___,  _______, _______,       _______,       _______,     _______,        _______, _______}
 },
 
 
@@ -110,32 +95,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *       when held |------+------+------+------+------+------|------+------+------+------+------+------|
  *                 |Capslk|uPyMac|      |      |      |      |      |      |      |      |      |Shift |
  *                 |------+------+------+------+------+------+------+------+------+------+------+------|
- *                 | Lock |      |      | Func |      |  Gui |  Alt |      |      |      |Debug |Reset |
+ *                 | Lock |Numlk | Func | Alt  |      |  Gui |      |      |      |      |Debug |Reset |
  *                 `-----------------------------------------------------------------------------------'
  */
 [_FUNCTION] = {
-  {KC_F1,          KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      KC_F7,      KC_F8,      KC_F8,   KC_F10,   KC_F11,  KC_F12},
-  {CTL_T(KC_ESC),  ___x___,    LGUI(KC_F11),    LGUI(KC_F12),    LGUI(LALT(KC_ESC)),    ___x___,    ___x___,    KC_SLCK,    KC_PAUS, ___x___,  ___x___, KC_RCTL},
-  {KC_CAPS,        ___x___,    ___x___,    ___x___,    ___x___,    ___x___,    ___x___,    ___x___,    ___x___, ___x___,  ___x___, KC_RSFT},
-  {LCTL(LGUI(KC_Q)),        ___x___,    _______,    _______,    KC_LALT,    KC_LGUI,    ___x___,    ___x___,    ___x___, ___x___,  DEBUG,   RESET}
+  {KC_F1,            KC_F2,       KC_F3,        KC_F4,        KC_F5,              KC_F6,      KC_F7,      KC_F8,      KC_F8,   KC_F10,   KC_F11,  KC_F12},
+  {CTL_T(KC_ESC),    ___x___,     LGUI(KC_F11), LGUI(KC_F12), LGUI(LALT(KC_ESC)), ___x___,    ___x___,    KC_SLCK,    KC_PAUS, ___x___,  ___x___, KC_RCTL},
+  {KC_CAPS,          ___x___,     ___x___,      ___x___,      ___x___,            ___x___,    ___x___,    ___x___,    ___x___, ___x___,  ___x___, KC_RSFT},
+  {LCTL(LGUI(KC_Q)), TG(_NUMPAD), _______,      _______,      ___x___,            KC_LGUI,    ___x___,    ___x___,    ___x___, ___x___,  DEBUG,   RESET}
 },
 
 /* Number Pad
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |      |      |      |      |      |      |      |   7  |   8  |   9  |  /   |
+ * | Tab  |      |      |      |      |      |      |   7  |   8  |   9  |  -   |  /   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |      |      |      |      |      |      |      |   4  |   5  |   6  |  *   |
+ * | Esc  |      |      |      |      |      |      |   4  |   5  |   6  |  +   |  *   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|      |      |      |      |      |      |      |   1  |   2  |   3  |  -   |
+ * | Shift|      |      |      |      |      |      |   1  |   2  |   3  |Enter |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      | Num  |      |      |      |      |Enter |   0  |   .  |Enter |  +   |
+ * |      | Num  |      |      |      |      |      |   0  |      |   .  |  .   |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMPAD] = {
-  {KC_TAB,  ___x___, ___x___, ___x___,  ___x___,    ___x___,    ___x___,    ___x___,    KC_7,    KC_8,    KC_9,    KC_SLSH},
-  {KC_ESC,  ___x___,    ___x___,    ___x___,    ___x___,    ___x___,    ___x___,    ___x___,    KC_4,    KC_5,    KC_6,    KC_ASTR},
-  {KC_LSFT, ___x___, ___x___,    ___x___,    ___x___,    ___x___,    ___x___,    ___x___,    KC_1,    KC_2,    KC_3,    KC_MINS },
-  {_______, _______, _______, ___x___, ___x___,   ___x___,  ___x___,  KC_ENT,   KC_0, KC_DOT, KC_ENT,   KC_PLUS}
+  {KC_TAB,  ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, KC_7, KC_8,    KC_9,   KC_MINS, KC_SLSH},
+  {KC_ESC,  ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, KC_4, KC_5,    KC_6,   KC_PLUS, KC_ASTR},
+  {KC_LSFT, ___x___, ___x___, ___x___, ___x___, ___x___, ___x___, KC_1, KC_2,    KC_3,   KC_ENT,  KC_ENT },
+  {_______, _______, _______, ___x___, ___x___, _______, _______, KC_0, ___x___, KC_DOT, KC_DOT,  ___x___}
 },
 /* Backlight
  * ,-----------------------------------------------------------------------------------.
@@ -157,94 +142,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 },
 
 };
-
-/* #ifdef AUDIO_ENABLE */
-/*   float plover_song[][2]     = SONG(PLOVER_SOUND); */
-/*   float plover_gb_song[][2]  = SONG(PLOVER_GOODBYE_SOUND); */
-/* #endif */
-
-/* bool process_record_user( keycode, keyrecord_t *record) { */
-/*   switch (keycode) { */
-/*     case QWERTY: */
-/*       if (record->event.pressed) { */
-/*         print("mode just switched to qwerty and this is a huge string\n"); */
-/*         set_single_persistent_default_layer(_QWERTY); */
-/*       } */
-/*       return false; */
-/*       break; */
-/*     case COLEMAK: */
-/*       if (record->event.pressed) { */
-/*         set_single_persistent_default_layer(_COLEMAK); */
-/*       } */
-/*       return false; */
-/*       break; */
-/*     case DVORAK: */
-/*       if (record->event.pressed) { */
-/*         set_single_persistent_default_layer(_DVORAK); */
-/*       } */
-/*       return false; */
-/*       break; */
-/*     case LOWER: */
-/*       if (record->event.pressed) { */
-/*         layer_on(_LOWER); */
-/*         update_tri_layer(_LOWER, _RAISE, _ADJUST); */
-/*       } else { */
-/*         layer_off(_LOWER); */
-/*         update_tri_layer(_LOWER, _RAISE, _ADJUST); */
-/*       } */
-/*       return false; */
-/*       break; */
-/*     case RAISE: */
-/*       if (record->event.pressed) { */
-/*         layer_on(_RAISE); */
-/*         update_tri_layer(_LOWER, _RAISE, _ADJUST); */
-/*       } else { */
-/*         layer_off(_RAISE); */
-/*         update_tri_layer(_LOWER, _RAISE, _ADJUST); */
-/*       } */
-/*       return false; */
-/*       break; */
-/*     case BACKLIT: */
-/*       if (record->event.pressed) { */
-/*         register_code(KC_RSFT); */
-/*         #ifdef BACKLIGHT_ENABLE */
-/*           backlight_step(); */
-/*         #endif */
-/*         PORTE &= ~(1<<6); */
-/*       } else { */
-/*         unregister_code(KC_RSFT); */
-/*         PORTE |= (1<<6); */
-/*       } */
-/*       return false; */
-/*       break; */
-/*     case PLOVER: */
-/*       if (record->event.pressed) { */
-/*         #ifdef AUDIO_ENABLE */
-/*           stop_all_notes(); */
-/*           PLAY_SONG(plover_song); */
-/*         #endif */
-/*         layer_off(_RAISE); */
-/*         layer_off(_LOWER); */
-/*         layer_off(_ADJUST); */
-/*         layer_on(_PLOVER); */
-/*         if (!eeconfig_is_enabled()) { */
-/*             eeconfig_init(); */
-/*         } */
-/*         keymap_config.raw = eeconfig_read_keymap(); */
-/*         keymap_config.nkro = 1; */
-/*         eeconfig_update_keymap(keymap_config.raw); */
-/*       } */
-/*       return false; */
-/*       break; */
-/*     case EXT_PLV: */
-/*       if (record->event.pressed) { */
-/*         #ifdef AUDIO_ENABLE */
-/*           PLAY_SONG(plover_gb_song); */
-/*         #endif */
-/*         layer_off(_PLOVER); */
-/*       } */
-/*       return false; */
-/*       break; */
-/*   } */
-/*   return true; */
-/* } */
