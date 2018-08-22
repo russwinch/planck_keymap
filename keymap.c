@@ -15,6 +15,7 @@
  * Set Screen Shot shortcuts for copy screen and copy screen area set to hyper+S and hyper+D
  * Use Automator to create a service to launch the calculator app. Keyboard shortcut set to hyper+C in Services
  * Deactivate Services shortcut for Convert Text to Simplified Chineese (hyper+C)
+ * Set Misson Control shortcuts for move left and right a space to hyper+F and hyper+G
  * ****************************************************************************************
  * Compile with: make planck/rev5:russwinch
  * While in the qmk-firmware folder
@@ -73,10 +74,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *              `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = {
-  {LGUI(KC_GRV),  KC_AUDIO_MUTE,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_VOL_UP,       LGUI(LALT(KC_LEFT)),  LGUI(LALT(KC_RIGHT)), LALT(KC_3), KC_LCBR,    KC_RCBR,    KC_LBRC, KC_RBRC, KC_PLUS},
-  {CTL_T(KC_GRV), KC_MEDIA_REWIND, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_FAST_FORWARD, LCTL(KC_LEFT), LCTL(KC_RIGHT), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_UNDS, MT(MOD_RCTL,KC_MINS)},
-  {_______,       ___x___,         ___x___,             ___x___,               LGUI(KC_LBRC), LGUI(KC_RBRC), LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP), LGUI(KC_RIGHT), ___x___,  _______},
-  {___x___, ___x___, _______, ___x___, _______, _______, KC_DEL, ___x___,    _______,    _______, _______, _______}
+  {LGUI(KC_GRV),  KC_AUDIO_MUTE,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_VOL_UP,       LGUI(LALT(KC_LEFT)), LGUI(LALT(KC_RIGHT)), LALT(KC_3),    KC_LCBR,       KC_RCBR,     KC_LBRC,        KC_RBRC, KC_PLUS},
+  {CTL_T(KC_GRV), KC_MEDIA_REWIND, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_FAST_FORWARD, HYPR(KC_F),          HYPR(KC_G),           KC_LEFT,       KC_DOWN,       KC_UP,       KC_RGHT,        KC_UNDS, MT(MOD_RCTL,KC_MINS)},
+  {_______,       ___x___,         ___x___,             ___x___,               LGUI(KC_LBRC),       LGUI(KC_RBRC),        LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP), LGUI(KC_RIGHT), ___x___, _______},
+  {___x___,       ___x___,         _______,             ___x___,               _______,             _______,              KC_DEL,        ___x___,       _______,     _______,        _______, _______}
 },
 
 /* Raise
