@@ -8,6 +8,17 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * ****************************************************************************************
+ * The following should be modified within MacOS:
+ * Set the keyboard Input Source to U.S.
+ * Set Screen Shot shortcuts for copy screen and copy screen area set to hyper+S and hyper+D
+ * Use Automator to create a service to launch the calculator app. Keyboard shortcut set to hyper+C in Services
+ * Deactivate Services shortcut for Convert Text to Simplified Chineese (hyper+C)
+ * ****************************************************************************************
+ * Compile with: make planck/rev5:russwinch
+ * While in the qmk-firmware folder
+ * Then flask to keyboard with QMK Toolbox
  */
 
 #include "planck.h"
@@ -93,15 +104,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                 |------+------+------+------+------+-------------+------+------+------+------+------|
  *       LCTRL ----| Esc  |      |PrtSc1|PrtSc2|ForceQ|      |      |ScBr- |ScBr+ |      |      | Ctrl |
  *       when held |------+------+------+------+------+------|------+------+------+------+------+------|
- *                 |Capslk|uPyMac|      |      |      |      |      |      |      |      |      |Shift |
+ *                 |Capslk|      |      | Calc |      |      |      |      |      |      |      |Shift |
  *                 |------+------+------+------+------+------+------+------+------+------+------+------|
  *                 | Lock |Numlk | Func | Alt  |      |  Gui |      |      |      |      |Debug |Reset |
  *                 `-----------------------------------------------------------------------------------'
  */
 [_FUNCTION] = {
   {KC_F1,            KC_F2,       KC_F3,        KC_F4,        KC_F5,              KC_F6,      KC_F7,      KC_F8,      KC_F8,   KC_F10,   KC_F11,  KC_F12},
-  {CTL_T(KC_ESC),    ___x___,     LGUI(KC_F11), LGUI(KC_F12), LGUI(LALT(KC_ESC)), ___x___,    ___x___,    KC_SLCK,    KC_PAUS, ___x___,  ___x___, KC_RCTL},
-  {KC_CAPS,          ___x___,     ___x___,      ___x___,      ___x___,            ___x___,    ___x___,    ___x___,    ___x___, ___x___,  ___x___, KC_RSFT},
+  {CTL_T(KC_ESC),    ___x___,     HYPR(KC_S),   HYPR(KC_D),   LGUI(LALT(KC_ESC)), ___x___,    ___x___,    KC_SLCK,    KC_PAUS, ___x___,  ___x___, KC_RCTL},
+  {KC_CAPS,          ___x___,     ___x___,      HYPR(KC_C),   ___x___,            ___x___,    ___x___,    ___x___,    ___x___, ___x___,  ___x___, KC_RSFT},
   {LCTL(LGUI(KC_Q)), TG(_NUMPAD), _______,      _______,      ___x___,            KC_LGUI,    ___x___,    ___x___,    ___x___, ___x___,  DEBUG,   RESET}
 },
 
