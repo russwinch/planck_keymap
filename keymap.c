@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = {
   {KC_TAB,         KC_Q,        KC_W,          KC_E,    KC_R,       KC_T,           KC_Y,   KC_U,       KC_I,    KC_O,    KC_P,    KC_BSLS},
   {CTL_T(KC_ESC),  KC_A,        KC_S,          KC_D,    KC_F,       KC_G,           KC_H,   KC_J,       KC_K,    KC_L,    KC_SCLN, MT(MOD_RCTL, KC_QUOT)},
-  {KC_LSFT,        KC_Z,        KC_X,          KC_C,    KC_V,       KC_B,           KC_N,   KC_M,       KC_COMM, KC_DOT,  KC_SLSH, MT(MOD_RSFT, KC_ENT)},
+  {KC_LSFT,        KC_Z,        KC_X,          KC_C,    KC_V,       KC_B,           KC_N,   KC_M,       KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT},
   {MO(_BACKLIGHT), MO(_NUMPAD), MO(_FUNCTION), KC_LALT, MO(_LOWER), GUI_T(KC_BSPC), KC_SPC, MO(_RAISE), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = {
   {LGUI(KC_GRV),  KC_AUDIO_MUTE,   KC_AUDIO_VOL_DOWN,   KC_AUDIO_VOL_UP,       LGUI(LALT(KC_LEFT)), LGUI(LALT(KC_RIGHT)), LALT(KC_3),    KC_LCBR,       KC_RCBR,     KC_LBRC,        KC_RBRC, KC_PLUS},
-  {CTL_T(KC_GRV), KC_MEDIA_REWIND, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_FAST_FORWARD, HYPR(KC_F),          HYPR(KC_G),           KC_LEFT,       KC_DOWN,       KC_UP,       KC_RGHT,        KC_UNDS, MT(MOD_RCTL,KC_MINS)},
+  {CTL_T(KC_GRV), KC_MEDIA_REWIND, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_FAST_FORWARD, LCTL(KC_LEFT),          LCTL(KC_RIGHT),           KC_LEFT,       KC_DOWN,       KC_UP,       KC_RGHT,        KC_UNDS, MT(MOD_RCTL,KC_MINS)},
   {_______,       ___x___,         ___x___,             ___x___,               LGUI(KC_LBRC),       LGUI(KC_RBRC),        LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP), LGUI(KC_RIGHT), ___x___, _______},
   {___x___,       ___x___,         _______,             ___x___,               _______,             _______,              KC_DEL,        ___x___,       _______,     _______,        _______, _______}
 },
